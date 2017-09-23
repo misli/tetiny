@@ -11,3 +11,7 @@ from cms_site.settings import *
 INSTALLED_APPS = [
     'tetiny',
 ] + INSTALLED_APPS
+
+CMSPLUGIN_FILER_FOLDER_STYLE_CHOICES = [
+    ('gallery', _('Gallery')),
+]
