@@ -1,0 +1,17 @@
+{% load i18n thumbnail sekizai_tags staticfiles %}
+
+{% include 'gallery.html' %}
+
+<div class="cmsplugin_filer_folder_list" id="folder_{{ instance.id }}">
+    {% for file in folder_files %}
+    {% if file.extension == 'mp3' or file.extension == 'wav' or file.extension == 'ogg' %}
+    <div class="audio">
+        <strong>{{ file }}</strong><br/>
+        <audio controls>
+            <source src="{{ file.url }}" type="audio/{% if file.extension == 'mp3' %}mpeg{% else %}{{ file.extension }}{% endif %}">
+            <a href="{{ file.url }}">{% trans 'download' %}</a>
+        </audio> 
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
