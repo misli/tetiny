@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rsync -rv {dahoman:/data/tetiny/,}data/ &
+rsync -rv {dahoman:/data/tetiny/,}media/ &
+wait

@@ -2,7 +2,6 @@
 *.pyo
 *.swp
 *~
-data
 env
 htdocs
 media
