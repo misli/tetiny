@@ -1,0 +1,25 @@
+version: '3.4'
+services:
+
+  web:
+    image: misli/tetiny
+    depends_on:
+      - memcached
+    environment:
+      DEBUG: TEMPLATE
+      SECRET_KEY: secretkey
+      MEMCACHED_LOCATION: memcached:11211
+    ports:
+      - 127.0.0.1:80:80
+    restart: unless-stopped
+    volumes:
+      - ./.ipython:/root/.ipython:z
+      - ./tetiny:/app/tetiny:ro
+      - ./data:/app/data:z
+      - ./htdocs/media:/app/htdocs/media:z
+
+  memcached:
+    image: memcached
+    ports:
+      - 127.0.0.1:11211:11211
+    restart: unless-stopped
